@@ -63,18 +63,18 @@ class WebFragment : Fragment() {
         return v
     }
 
-    // FIXME does not work
     private fun onKeyboardShown() {
-        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.visibility='hidden'")
-        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.padding=0px")
-        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.height=0px")
+        // TODO react.js obfuscates class names in HTML, therefore they change often
+//        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.visibility='hidden'")
+//        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.padding=0px")
+//        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.height=0px")
     }
 
 
     private fun onKeyboardHidden() {
-        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.visibility='shown'")
-        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.padding=10px")
-        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.height=59px")
+//        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.visibility='shown'")
+//        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.padding=10px")
+//        webview!!.loadUrl("javascript:document.getElementsByClassName('pane-header').style.height=59px")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -122,7 +122,7 @@ class WebFragment : Fragment() {
                 progressbar!!.progress = newProgress
 
 
-                progressbar!!.setVisibility(if (newProgress < 100) View.VISIBLE else View.INVISIBLE);
+                progressbar!!.setVisibility(if (newProgress < 100) View.VISIBLE else View.GONE);
             }
         }
 
