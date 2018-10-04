@@ -3,6 +3,7 @@ package com.graeb.whatablet
 import android.app.Activity.RESULT_OK
 import android.app.Fragment
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -59,6 +60,14 @@ class WebFragment : Fragment() {
             }
 
         })
+
+        // requesting audio permission for recording audio messages
+        if (activity.checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            val PERMISSION_REQUEST_CODE = 42
+            activity.requestPermissions(arrayOf(android.Manifest.permission.RECORD_AUDIO), PERMISSION_REQUEST_CODE)
+            Toast.makeText(context, "requesting permission", Toast.LENGTH_SHORT)
+                    .show()
+        }
 
         return v
     }
@@ -121,8 +130,13 @@ class WebFragment : Fragment() {
             override fun onProgressChanged(view: WebView, newProgress: Int) {
                 progressbar!!.progress = newProgress
 
-
                 progressbar!!.setVisibility(if (newProgress < 100) View.VISIBLE else View.GONE);
+            }
+
+            override fun onPermissionRequest(request: PermissionRequest?) {
+                request!!.grant(request.resources)
+                Toast.makeText(context, "Received permission request", Toast.LENGTH_SHORT)
+                        .show()
             }
         }
 
