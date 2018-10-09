@@ -4,11 +4,17 @@ A small wrapper around the whatsapp web client.
 
 The interface is optimized for android tablet. Currently the design is not modified.
 
-### Stuff to fix:
+Working:
 
 * Image Upload
-* Replace stolen icon from whatsapp
+* Audio Messages
+* Handling back key correctly (closing modal windows etc)
+* Supporting orientation changes
 
+### Stuff to fix:
+
+* Replace stolen icon from whatsapp
+* Support HTML5 Notifications
 
 ### TODO
 * Write short article for website
