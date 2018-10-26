@@ -42,6 +42,7 @@ class WebFragment : Fragment() {
             webview!!.restoreState(state)
         }
 
+        // observe when keyboard is expanded or hidden
         v.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             private var mPreviousHeight: Int = 0
 
