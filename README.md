@@ -1,4 +1,4 @@
-#Whatablet
+# Whatablet
 
 A small wrapper around the whatsapp web client.
 
